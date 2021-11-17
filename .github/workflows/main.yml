@@ -55,6 +55,7 @@ jobs:
             cd /root/nuxt-study
             wget https://github.com/xuqingxi/nuxt-study/releases/latest/download/release.tgz -O release.tgz
             tar zxvf release.tgz
+            npm install pm2 -g
             npm install --production
             pm2 reload pm2.config.json
 

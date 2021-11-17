@@ -1,0 +1,60 @@
+name: Publish And Deploy
+on:
+  push:
+    tags:
+      - 'v*' 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubutu-latest
+    steps:
+      # 下载源码 使用actions仓库checkout指定master分支
+      - name: Checkout
+        uses: actions/checkout@master
+      
+      # 打包构建 先设置node环境，在执行构建脚本
+      - name: Build
+        uses: actions/setup-node@master
+      - run: npm install
+      - run: npm run build
+      - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json pm2.config.json
+
+      # 发布正式release id用于steps上下文引用 env为环境变量 with为action仓库的step参数会添加到它的环境变量，括号为上下文
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.NUXT }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      
+      # 上传结果到Release
+      - name: Upload Release Asset
+        id: uplaod-release-asset
+        uses: actions/uplaod-release-asset@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.NUXT }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asste_name: release.tgz
+          asset_path: ./release.tgz
+          asset_content_type: application/x-tgz
+      
+      # 部署到服务器 wget -O 下载时将文档写入一个指定参数名称的文档，下面的使用没有什么左右
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secret.HOST }}
+          username: ${{ secret.USERNAME }}
+          password: ${{ secret.PASSWORD }}
+          port: ${{ secret.PORT }}
+          script: 
+            cd /root/nuxt-study
+            wget https://github.com/xuqingxi/nuxt-study/releases/latest/download/release.tgz -O release.tgz
+            tar zxvf release.tgz
+            npm install --production
+            pm2 reload pm2.config.json
+

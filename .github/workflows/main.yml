@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     steps:
       # 下载源码 使用actions仓库checkout指定master分支
       - name: Checkout

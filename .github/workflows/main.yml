@@ -47,10 +47,10 @@ jobs:
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secret.HOST }}
-          username: ${{ secret.USERNAME }}
-          password: ${{ secret.PASSWORD }}
-          port: ${{ secret.PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: 
             cd /root/nuxt-study
             wget https://github.com/xuqingxi/nuxt-study/releases/latest/download/release.tgz -O release.tgz

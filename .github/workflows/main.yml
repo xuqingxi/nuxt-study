@@ -34,7 +34,7 @@ jobs:
       # 上传结果到Release
       - name: Upload Release Asset
         id: uplaod-release-asset
-        uses: actions/uplaod-release-asset@master
+        uses: actions/upload-release-asset@master
         env:
           GITHUB_TOKEN: ${{ secrets.NUXT }}
         with:

@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@master
       - run: npm install
       - run: npm run build
-      - run: tar -zcvf release.tgz .nuxt static nuxt.config.js package.json package-lock.json pm2.config.json
+      - run: tar -zcvf release.tgz .nuxt static router nuxt.config.js package.json package-lock.json pm2.config.json
 
       # 发布正式release id用于steps上下文引用 env为环境变量 with为action仓库的step参数会添加到它的环境变量，括号为上下文
       - name: Create Release

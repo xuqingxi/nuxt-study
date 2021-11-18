@@ -4,13 +4,13 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _7a8f6483 = () => interopDefault(import('..\\pages\\layout' /* webpackChunkName: "" */))
-const _0971e078 = () => interopDefault(import('..\\pages\\home' /* webpackChunkName: "" */))
-const _096ec941 = () => interopDefault(import('..\\pages\\auth' /* webpackChunkName: "" */))
-const _927b9988 = () => interopDefault(import('..\\pages\\settings' /* webpackChunkName: "" */))
-const _18004956 = () => interopDefault(import('..\\pages\\articles' /* webpackChunkName: "" */))
-const _71316920 = () => interopDefault(import('..\\pages\\profile' /* webpackChunkName: "" */))
-const _6ec08ac6 = () => interopDefault(import('..\\pages\\editor' /* webpackChunkName: "" */))
+const _748768a3 = () => interopDefault(import('..\\pages\\layout' /* webpackChunkName: "" */))
+const _184726d0 = () => interopDefault(import('..\\pages\\home' /* webpackChunkName: "" */))
+const _184d553e = () => interopDefault(import('..\\pages\\auth' /* webpackChunkName: "" */))
+const _12c9af5c = () => interopDefault(import('..\\pages\\settings' /* webpackChunkName: "" */))
+const _7407c576 = () => interopDefault(import('..\\pages\\articles' /* webpackChunkName: "" */))
+const _0c6fcb50 = () => interopDefault(import('..\\pages\\profile' /* webpackChunkName: "" */))
+const _68b88ee6 = () => interopDefault(import('..\\pages\\editor' /* webpackChunkName: "" */))
 
 const emptyFn = () => {}
 
@@ -25,34 +25,34 @@ export const routerOptions = {
 
   routes: [{
     path: "/",
-    component: _7a8f6483,
+    component: _748768a3,
     children: [{
       path: "",
-      component: _0971e078,
+      component: _184726d0,
       name: "home"
     }, {
       path: "login",
-      component: _096ec941,
+      component: _184d553e,
       name: "login"
     }, {
       path: "register",
-      component: _096ec941,
+      component: _184d553e,
       name: "register"
     }, {
       path: "settings",
-      component: _927b9988,
+      component: _12c9af5c,
       name: "settings"
     }, {
       path: "articles/:id",
-      component: _18004956,
+      component: _7407c576,
       name: "articles"
     }, {
       path: "profile",
-      component: _71316920,
+      component: _0c6fcb50,
       name: "profile"
     }, {
       path: "editor",
-      component: _6ec08ac6,
+      component: _68b88ee6,
       name: "editor"
     }]
   }],

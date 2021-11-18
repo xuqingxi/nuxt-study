@@ -6,46 +6,38 @@
       {
         "path": "",
         "name": "home",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\home",
-        "_name": "_184726d0"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\home"
       },
       {
         "path": "login",
         "name": "login",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\auth",
-        "_name": "_184d553e"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\auth"
       },
       {
         "path": "register",
         "name": "register",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\auth",
-        "_name": "_184d553e"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\auth"
       },
       {
         "path": "settings",
         "name": "settings",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\settings",
-        "_name": "_12c9af5c"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\settings"
       },
       {
         "path": "articles/:id",
         "name": "articles",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\articles",
-        "_name": "_7407c576"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\articles"
       },
       {
         "path": "profile",
         "name": "profile",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\profile",
-        "_name": "_0c6fcb50"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\profile"
       },
       {
         "path": "editor",
         "name": "editor",
-        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\editor",
-        "_name": "_68b88ee6"
+        "component": "D:\\\\Lagou\\\\nuxt-study\\\\pages\\\\editor"
       }
-    ],
-    "_name": "_748768a3"
+    ]
   }
 ]

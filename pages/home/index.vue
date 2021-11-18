@@ -136,10 +136,11 @@ export default {
       let [tagRes, articleRes, feedRes] = await Promise.all(pArr)
       let tagList = [], articles = []
       let totalCount = 0
-      if(tagRes[1].tags) {
+      console.log(tagRes)
+      if(tagRes[1] && tagRes[1].tags) {
         tagList = tagRes[1].tags.slice(0, 10)
       }
-      if(articleRes[1].articles) {
+      if(articleRes[1] && articleRes[1].articles) {
         articles = articleRes[1].articles
         totalCount = articleRes[1].articlesCount
       }

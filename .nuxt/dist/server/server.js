@@ -257,25 +257,36 @@ module.exports = require("vue-no-ssr");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
+let requestInterceptor = false;
+let responseInterceptor = false;
 const api = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
   baseURL: 'http://realworld.api.fed.lagounews.com/api',
   timeout: 5000
 });
+console.log('request');
 /* harmony default export */ __webpack_exports__["b"] = (function ({
   store
 }, inject) {
-  console.log('plugin loaded');
-  api.interceptors.request.use(config => {
-    config.headers.Authorization = store.state.user && store.state.user.token;
-    return config;
-  }, err => {
-    return Promise.reject(err);
-  });
-  api.interceptors.response.use(res => {
-    return res.data;
-  }, err => {
-    return Promise.reject(err);
-  });
+  console.log(!!requestInterceptor, !!responseInterceptor);
+
+  if (!requestInterceptor) {
+    requestInterceptor = true;
+    api.interceptors.request.use(config => {
+      config.headers.Authorization = store.state.user && store.state.user.token;
+      return config;
+    }, err => {
+      return Promise.reject(err);
+    });
+  }
+
+  if (!responseInterceptor) {
+    responseInterceptor = true;
+    api.interceptors.response.use(res => {
+      return res.data;
+    }, err => {
+      return Promise.reject(err);
+    });
+  }
 });
 
 /***/ }),
@@ -1436,7 +1447,8 @@ function shouldScrollToTop(route) {
   const nuxt = window.$nuxt;
 
   if ( // Initial load (vuejs/vue-router#3199)
-  !isRouteChanged || to.path === from.path && to.hash !== from.hash) {
+  !isRouteChanged || // Route hash changes
+  to.path === from.path && to.hash !== from.hash) {
     nuxt.$nextTick(() => nuxt.$emit('triggerScroll'));
   }
 

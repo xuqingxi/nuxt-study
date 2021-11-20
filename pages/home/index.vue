@@ -136,7 +136,6 @@ export default {
       let [tagRes, articleRes, feedRes] = await Promise.all(pArr)
       let tagList = [], articles = []
       let totalCount = 0
-      console.log(tagRes)
       if(tagRes[1] && tagRes[1].tags) {
         tagList = tagRes[1].tags.slice(0, 10)
       }
